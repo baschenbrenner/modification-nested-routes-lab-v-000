@@ -1,6 +1,18 @@
 <%= form_for @song  do |f| %>
+ <% if params[:artist_id] %>
+  <%= artist_select(@song, Artist.find_by(params[:artist_id])) %>
+ <% else %>
+ <%= artist_select(@song) %>
+ <% end %>
+ 
+<br>
+
+  
+<br>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
+  
+  
   <%= f.label :artist_name %>
   <%= f.text_field :artist_name %>
   <br />
